@@ -41,9 +41,11 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 85%;
+  width: 490px;
+  height: 55px;
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.5);
+  /* background-color: rgba(255, 255, 255, 0.5); */
+  background-color: #dbe2ef;
   padding: 5px 10px;
   margin-bottom: 5px;
   word-break: break-all;
@@ -56,6 +58,7 @@ export default {
 
 .item-wrapper .item-text {
   font-weight: 500;
+  font-size: 18px;
 }
 
 .shake {

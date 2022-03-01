@@ -34,7 +34,7 @@ export default {
 }
 
 .list ul {
-  height: 160px;
+  height: 260px;
   overflow-y: auto;
   text-decoration: none;
   scroll-snap-type: y mandatory;
