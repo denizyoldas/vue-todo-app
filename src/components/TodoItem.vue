@@ -1,7 +1,7 @@
 <template>
   <div class="item-wrapper" :class="{ shake: removeAnimation }">
     <input type="checkbox" v-model="isDone" @click="doneHand" />
-    <span :class="{ done: isDone }">{{ text }}</span>
+    <span :class="{ done: isDone }" class="item-text">{{ text }}</span>
     <button class="close" @click="remove(id)">X</button>
   </div>
 </template>
@@ -42,11 +42,20 @@ export default {
   justify-content: space-between;
   align-items: center;
   width: 85%;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  word-break: break-all;
 }
 
 .item-wrapper input {
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
+}
+
+.item-wrapper .item-text {
+  font-weight: 500;
 }
 
 .shake {

@@ -2,6 +2,7 @@
   <Layout>
     <h1>Todo App</h1>
     <AddTodo />
+    <div class="line"></div>
     <TodoList />
   </Layout>
 </template>
@@ -18,10 +19,11 @@ export default {
 </script>
 
 <style>
+@import "./styles/normalize.css";
+
 body {
   margin: 0px;
-  background-color: #fbf8f1;
-  color: #54bab9;
+  background-color: #3f72af;
 }
 
 #app {
@@ -30,5 +32,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   margin-top: 60px;
+}
+
+.line {
+  padding: 0 15px;
+  width: 500px;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
 }
 </style>
