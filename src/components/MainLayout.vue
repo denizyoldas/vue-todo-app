@@ -35,4 +35,15 @@ export default {};
   height: 450px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
+@media only screen and (max-width: 600px) {
+  .content {
+    display: block;
+  }
+
+  .card {
+    width: 350px;
+    height: 500px;
+  }
+}
 </style>
