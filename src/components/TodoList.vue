@@ -34,8 +34,8 @@ export default {
   scroll-snap-type: y mandatory;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  overflow-x: hidden;
 }
 
 .list TodoItem {

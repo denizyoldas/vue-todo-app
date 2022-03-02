@@ -11,10 +11,19 @@
 import TodoList from "./components/TodoList.vue";
 import AddTodo from "./components/AddTodo.vue";
 import Layout from "./components/MainLayout.vue";
+import { mapActions } from "vuex";
 
 export default {
   name: "App",
   components: { TodoList, AddTodo, Layout },
+  created() {
+    let todos = localStorage.getItem("todos");
+    if (todos) {
+      todos = JSON.parse(todos);
+      this.setTodos(todos);
+    }
+  },
+  methods: { ...mapActions(["setTodos"]) },
 };
 </script>
 

@@ -14,13 +14,19 @@ export default createStore({
   mutations: {
     addTodoItem(state, todo) {
       state.todos.push({ id: id++, text: todo, done: false });
+      localStorage.setItem("todos", JSON.stringify(state.todos));
     },
     removeTodoItem(state, id) {
       state.todos = state.todos.filter((todo) => todo.id !== id);
+      localStorage.setItem("todos", JSON.stringify(state.todos));
     },
     doneTodoItem(state, { id, done }) {
       const index = state.todos.findIndex((todo) => todo.id === id);
       state.todos[index].done = done;
+      localStorage.setItem("todos", JSON.stringify(state.todos));
+    },
+    setAllTodo(state, todos) {
+      state.todos = todos;
     },
   },
   actions: {
@@ -32,6 +38,9 @@ export default createStore({
     },
     doneTodo({ commit }, payload) {
       commit("doneTodoItem", payload);
+    },
+    setTodos({ commit }, todos) {
+      commit("setAllTodo", todos);
     },
   },
 });
