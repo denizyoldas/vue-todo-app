@@ -4,12 +4,10 @@
     <span :class="{ done: isDone }" class="item-text">{{ text }}</span>
     <div class="btn-wrapper">
       <button class="btn btn-edit" @click="edit()">
-        <!-- <f-icon icon="pen-to-square" /> -->
-        edit
+        <f-icon icon="pen-to-square" />
       </button>
       <button class="btn btn-close" @click="remove(id)">
-        <!-- <f-icon icon="trash" /> -->
-        trash
+        <f-icon icon="trash" />
       </button>
     </div>
   </div>
