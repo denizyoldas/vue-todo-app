@@ -50,7 +50,7 @@ export default {
 }
 
 .add-wrapper input[type="text"] {
-  border-radius: 5px;
+  border-radius: 5px 0 0 5px;
   border: 1px solid rgba(177, 177, 177, 0.4);
   padding: 10px;
   width: 250px;
@@ -67,19 +67,21 @@ export default {
   color: #fff;
   border: none;
   font-size: 40px;
-  position: absolute;
   width: 55px;
-  height: 54px;
+  height: 55px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  left: 850.69px;
-  top: 139.6px;
   cursor: pointer;
 }
 
 @media only screen and (max-width: 600px) {
+  .add-wrapper input[type="text"] {
+    width: 200px;
+  }
+
   .success-button {
-    left: 265px;
+    width: 55px;
+    height: 55px;
   }
 }
 </style>

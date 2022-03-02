@@ -1,15 +1,13 @@
 <template>
   <div class="list">
-    <ul>
-      <li v-for="todo in todos" :key="todo.id">
-        <TodoItem
-          :text="todo.text"
-          :id="todo.id"
-          :done="todo.done"
-          @removeTodo="(e) => removeTodo(e)"
-        />
-      </li>
-    </ul>
+    <TodoItem
+      v-for="todo in todos"
+      :key="todo.id"
+      :text="todo.text"
+      :id="todo.id"
+      :done="todo.done"
+      @removeTodo="(e) => removeTodo(e)"
+    />
   </div>
 </template>
 
@@ -30,28 +28,27 @@ export default {
 
 <style scoped>
 .list {
-  padding: 0px 20px;
-}
-
-.list ul {
+  padding-top: 15px;
   height: 260px;
   overflow-y: auto;
-  text-decoration: none;
   scroll-snap-type: y mandatory;
-  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.list ul li {
+.list TodoItem {
   scroll-snap-align: start;
 }
 
-.list ul::-webkit-scrollbar {
+.list::-webkit-scrollbar {
   width: 2px;
   background-color: transparent;
   border-radius: 0;
 }
 
-.list ul::-webkit-scrollbar-thumb {
+.list::-webkit-scrollbar-thumb {
   width: 10px;
   border-radius: 6px;
   background-color: #54bab9;

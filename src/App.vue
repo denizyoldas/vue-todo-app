@@ -44,7 +44,13 @@ body {
 
 @media only screen and (max-width: 600px) {
   .line {
-    left: 285px;
+    width: 285px;
+  }
+
+  #app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 </style>
