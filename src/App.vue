@@ -5,17 +5,19 @@
     <div class="line"></div>
     <TodoList />
   </Layout>
+  <PWAPrompt />
 </template>
 
 <script>
 import TodoList from "./components/TodoList.vue";
 import AddTodo from "./components/AddTodo.vue";
 import Layout from "./components/MainLayout.vue";
+import PWAPrompt from "./components/PWAPrompt.vue";
 import { mapActions } from "vuex";
 
 export default {
   name: "App",
-  components: { TodoList, AddTodo, Layout },
+  components: { TodoList, AddTodo, Layout, PWAPrompt },
   created() {
     let todos = localStorage.getItem("todos");
     if (todos) {
