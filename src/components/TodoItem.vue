@@ -108,4 +108,10 @@ export default {
   text-decoration: line-through;
   text-decoration-color: #ff2123;
 }
+
+@media only screen and (max-width: 600px) {
+  .item-wrapper {
+    width: 250px;
+  }
+}
 </style>

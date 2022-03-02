@@ -41,4 +41,10 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   margin: 0 auto;
 }
+
+@media only screen and (max-width: 600px) {
+  .line {
+    left: 285px;
+  }
+}
 </style>

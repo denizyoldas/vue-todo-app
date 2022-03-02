@@ -76,4 +76,10 @@ export default {
   top: 139.6px;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+  .success-button {
+    left: 265px;
+  }
+}
 </style>
