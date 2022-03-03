@@ -28,7 +28,7 @@ export default {
 
 <style scoped>
 .list {
-  padding-top: 15px;
+  margin: 15px 35px;
   height: 260px;
   overflow-y: auto;
   scroll-snap-type: y mandatory;

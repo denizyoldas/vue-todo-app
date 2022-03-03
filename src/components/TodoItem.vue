@@ -1,7 +1,16 @@
 <template>
   <div class="item-wrapper" :class="{ remove: removeAnimation }">
     <input type="checkbox" v-model="isDone" @click="doneHand" />
-    <span :class="{ done: isDone }" class="item-text">{{ text }}</span>
+    <input
+      class="edit-input"
+      type="text"
+      v-model="newText"
+      v-if="isEdit"
+      @keydown.enter="saveEdit"
+    />
+    <span :class="{ done: isDone }" class="item-text" v-if="!isEdit">
+      {{ text }}
+    </span>
     <div class="btn-wrapper">
       <button class="btn btn-edit" @click="edit()">
         <f-icon icon="pen-to-square" />
@@ -25,10 +34,15 @@ export default {
     done: Boolean,
   },
   data() {
-    return { isDone: this.done, removeAnimation: false };
+    return {
+      isDone: this.done,
+      removeAnimation: false,
+      newText: this.text,
+      isEdit: false,
+    };
   },
   methods: {
-    ...mapActions(["removeTodo", "doneTodo"]),
+    ...mapActions(["removeTodo", "doneTodo", "setTextById"]),
     remove(id) {
       this.removeAnimation = true;
       setTimeout(() => {
@@ -39,7 +53,13 @@ export default {
     doneHand() {
       this.doneTodo({ id: this.id, done: !this.isDone });
     },
-    edit() {},
+    edit() {
+      this.isEdit = true;
+    },
+    saveEdit() {
+      this.isEdit = false;
+      this.setTextById({ id: this.id, text: this.newText });
+    },
   },
 };
 </script>
@@ -50,7 +70,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   width: 490px;
-  height: 55px;
+  min-height: 55px;
   border-radius: 5px;
   /* background-color: rgba(255, 255, 255, 0.5); */
   background-color: #dbe2ef;
@@ -64,7 +84,7 @@ export default {
   opacity: 0.6;
 } */
 
-.item-wrapper input {
+.item-wrapper input[type="checkbox"] {
   height: 20px;
   width: 20px;
 }
@@ -121,5 +141,16 @@ export default {
   .item-wrapper {
     width: 250px;
   }
+
+  .edit-input {
+    width: 100px;
+  }
+}
+
+.edit-input {
+  width: 240px;
+  border: 1px solid rgba(177, 177, 177, 0.4);
+  padding: 10px;
+  background-color: #fff;
 }
 </style>

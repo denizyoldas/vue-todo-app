@@ -28,6 +28,11 @@ export default createStore({
     setAllTodo(state, todos) {
       state.todos = todos;
     },
+    setText(state, { text, id }) {
+      const index = state.todos.findIndex((todo) => todo.id === id);
+      state.todos[index].text = text;
+      localStorage.setItem("todos", JSON.stringify(state.todos));
+    },
   },
   actions: {
     addTodo({ commit }, todo) {
@@ -41,6 +46,9 @@ export default createStore({
     },
     setTodos({ commit }, todos) {
       commit("setAllTodo", todos);
+    },
+    setTextById({ commit }, payload) {
+      commit("setText", payload);
     },
   },
 });
